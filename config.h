@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "FantasqueSansM Nerd Font:Regular:pixelsize=14:antialias=true:autohint=true";
+static char *font = "FantasqueSansM Nerd Font Mono:Regular:pixelsize=14:antialias=true:autohint=false:hintstyle=hintnone:rgba=none:lcdfilter=none";
 static int borderpx = 2;
 
 /*
@@ -26,8 +26,8 @@ char *stty_args = "stty raw pass8 nl -echo -iexten -cstopb 38400";
 char *vtiden = "\033[?6c";
 
 /* Kerning / character bounding-box multipliers */
-static float cwscale = 1.0;
-static float chscale = 1.0;
+static float cwscale = 1.05;
+static float chscale = 1.18;
 
 /*
  * word delimiter string
@@ -94,36 +94,35 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* Terminal colors (16 first used in escape sequence) */
-/* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors */
-	[0] = "#33202b", /* black   */
-	[1] = "#7a1f2f", /* red     */
-	[2] = "#3427a0", /* green   */
-	[3] = "#461f8e", /* yellow  */
-	[4] = "#2219a3", /* blue    */
-	[5] = "#0f4752", /* magenta */
-	[6] = "#0f3d52", /* cyan    */
-	[7] = "#3d3733", /* white   */
+	[0] = "#c2c6d4", /* black   */
+	[1] = "#f52a65", /* red     */
+	[2] = "#10a877", /* green   */
+	[3] = "#df8e1d", /* yellow  */
+	[4] = "#366ff0", /* blue    */
+	[5] = "#8b4fe0", /* magenta */
+	[6] = "#0a9fbf", /* cyan    */
+	[7] = "#59647e", /* white   */
 
 	/* 8 bright colors */
-	[8]  = "#4a3758", /* black   */
-	[9]  = "#670594", /* red     */
-	[10] = "#600a61", /* green   */
-	[11] = "#172f92", /* yellow  */
-	[12] = "#3f22aa", /* blue    */
-	[13] = "#77080c", /* magenta */
-	[14] = "#244002", /* cyan    */
-	[15] = "#434338", /* white   */
+	[8]  = "#7b88a8", /* black   */
+	[9]  = "#f52a65", /* red     */
+	[10] = "#10a877", /* green   */
+	[11] = "#df8e1d", /* yellow  */
+	[12] = "#366ff0", /* blue    */
+	[13] = "#8b4fe0", /* magenta */
+	[14] = "#0a9fbf", /* cyan    */
+	[15] = "#2f3b54", /* white   */
 
-  /* special colors */
-	[256] = "#f5f1f1", /* background */
-	[257] = "#35282f", /* foreground */
-	[258] = "#f03488", /* cursor */
-	[259] = "#f4f1f1", /* cursor text */
-	[260] = "#e9d989", /* selection background */
-	[261] = "#332d2d", /* selection foreground */
-	[262] = "#fc4483", /* badge */
+	/* special colors */
+	[256] = "#eef0f5", /* background */
+	[257] = "#2f3b54", /* foreground */
+	[258] = "#2f3b54", /* cursor */
+	[259] = "#eef0f5", /* cursor text */
+	[260] = "#d6def5", /* selection background */
+	[261] = "#2f3b54", /* selection foreground */
+	[262] = "#f52a65", /* badge */
 };
 
 /*
@@ -134,8 +133,12 @@ unsigned int defaultfg = 257;
 unsigned int defaultbg = 256;
 unsigned int defaultcs = 258;
 static unsigned int defaultrcs = 259;
-unsigned int defaultsb = 260; /* selection background */
-unsigned int defaultsf = 261; /* selection foreground */
+
+/*
+ * Selection colors
+ */
+unsigned int defaultsb = 260;
+unsigned int defaultsf = 261;
 
 /*
  * Default shape of cursor
