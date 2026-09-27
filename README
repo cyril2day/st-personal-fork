@@ -2,6 +2,26 @@ st - simple terminal
 --------------------
 st is a simple terminal emulator for X which sucks less.
 
+This is a personal fork of the original st project, tracked on the "v1"
+branch. The changes on this branch are about personal theming only: a custom
+color palette, font, and selection/cursor styling. No upstream functionality
+has been removed or modified.
+
+
+Changes on this branch
+----------------------
+- Selection colors: text selection uses dedicated, configurable background
+  (defaultsb) and foreground (defaultsf) colors in config.h instead of the
+  default reverse-video effect. Implemented with a new ATTR_SELECTED glyph
+  attribute (st.h, x.c).
+- Personal color theme: custom 16-color palette plus special colors
+  (background, foreground, cursor, cursor text, selection background,
+  selection foreground, badge) in config.h.
+- Custom font: "FantasqueSansM Nerd Font" at size 14.
+- Cursor shape: when an application resets the cursor shape (cursor 0 in
+  OSC 50), st now falls back to the cursorshape value configured in config.h
+  instead of the default block cursor.
+
 
 Requirements
 ------------
@@ -31,4 +51,9 @@ See the man page for additional details.
 Credits
 -------
 Based on Aurélien APTEL <aurelien dot aptel at gmail dot com> bt source code.
+
+Upstream st is developed by suckless.org: <https://st.suckless.org/>
+Repository: <https://git.suckless.org/st/>
+
+This personal fork is maintained by cyril2day: <https://github.com/cyril2day/st-personal-fork>
 
